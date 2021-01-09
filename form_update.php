@@ -7,6 +7,8 @@ $phone = $_POST['phone'];
 $email = $_POST['email'];
 $content = $_POST['content'];
 
+include('function.php');
+$pdo = connect_to_db();
 
 // idを指定して更新するSQLを作成（UPDATE文）
 $sql = "UPDATE form_table2 SET company=:company, name=:name,
@@ -21,6 +23,9 @@ $stmt->bindValue(':content', $content, PDO::PARAM_INT);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute();
 
+// var_dump($content);
+// exit();
+
 if ($status == false) {
     // SQL実行に失敗した場合はここでエラーを出力し，以降の処理を中止する
     $error = $stmt->errorInfo();
@@ -28,6 +33,6 @@ if ($status == false) {
     exit();
 } else {
     // 正常に実行された場合は一覧ページファイルに移動し，処理を実行する
-    header("Location:form_txt_read.php");
+    header("Location:form_read.php");
     exit();
 }

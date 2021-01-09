@@ -110,7 +110,7 @@ if ($status == false) {
 <body>
 
   <h1>問い合わせ一覧</h1>
-  <a href="./form_txt_input.php">入力画面</a>
+  <a href="./form_input.php">入力画面</a>
   <table>
     <thead>
       <tr>

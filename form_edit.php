@@ -1,11 +1,11 @@
 <?PHP
-include("function.php");
-
 // idをgetで受け取る
 $id = $_GET['id'];
 
-// DB接続してidをテーブルから見つける
+include("function.php");
 $pdo = connect_to_db();
+
+// DB接続してidをテーブルから見つける
 $sql = 'SELECT * FROM form_table2 WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -71,8 +71,8 @@ if ($status == false) {
                 <li><a href="#">１ページ目</a></li>
                 <li><a href="#">２ページ目</a></li>
                 <li><a href="#">３ページ目</a></li>
-                <li><a href="form_txt_input.php">お問い合わせ</a></li>
-                <li><a href="form_txt_read.php">管理者画面</a></li>
+                <li><a href="form_input.php">お問い合わせ</a></li>
+                <li><a href="form_read.php">管理者画面</a></li>
         </div>
         </ul>
     </nav>
@@ -81,7 +81,7 @@ if ($status == false) {
 
 <body>
     <h1>お問い合わせ</h1>
-    <form action="form_txt_create.php" method="POST">
+    <form action="form_update.php" method="POST">
         <div class="Form">
             <div class="Form-Item">
                 <p class="Form-Item-Label">

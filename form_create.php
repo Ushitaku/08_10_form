@@ -32,5 +32,5 @@ if ($status == false) {
     exit('sqlError:' . $error[2]);
 } else {
     // 登録ページへ移動
-    header('Location:form_txt_input.php');
+    header('Location:form_input.php');
 }
